@@ -7,8 +7,8 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="flutter_demo_app"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Demo App"
+        android:icon="@drawable/ic_action_name">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

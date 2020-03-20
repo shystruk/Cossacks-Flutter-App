@@ -1,7 +1,7 @@
 # Flutter Demo app
 
 ## Hints
-
+ - `flutter create my_app` - create a new app
  - `flutter run` - run an app on a device
  - `flutter devices` - see a list of connected devices
  - `flutter emulators` - see a list of available devices
