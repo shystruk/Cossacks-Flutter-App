@@ -15,7 +15,7 @@ class TextCustom extends StatelessWidget {
       this.text,
       textAlign: TextAlign.center,
       style: TextStyle(fontWeight: FontWeight.bold, color: this.color),
-      textDirection: TextDirection.ltr,
+      textDirection: TextDirection.ltr
     );
   }
 }
