@@ -12,6 +12,7 @@
 
 ## Sources
  - [App Icon/Label/Name](./docs/AppIcon.md)
+ - [Splash Screen](./docs/SplashScreen.md)
 
 ## Docs
 
