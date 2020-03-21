@@ -24,4 +24,5 @@ Change `Bundle name` in `Runner -> Info.plist` file
 
 ### App Icon
 [Link](https://stackoverflow.com/a/55054303/5981661)
+
 [Icon Generator](https://appicon.co/)
