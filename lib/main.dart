@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo_app/widget/TextCustom.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,12 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        widget.title,
-        textAlign: TextAlign.center,
-        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        textDirection: TextDirection.ltr,
-      ),
+      child: TextCustom(text: widget.title)
     );
   }
 }
