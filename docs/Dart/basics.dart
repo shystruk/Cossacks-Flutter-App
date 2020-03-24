@@ -20,4 +20,29 @@ void main() {
   // Final and Const
   final String cityName = 'Kyiv';
   const int cityAge = 200;
+
+  // ?? Expression
+  String firstName = 'Vasyl';
+  print(firstName ?? 'John');
+
+  // for ..in loop
+  List cities = ['Kyiv', 'Ternopil'];
+  for(String city in cities) {
+    print(city);
+  }
+
+  // Function
+  int getYear(int year) {
+    return year ?? 2020;
+  }
+
+  // Oprional parametr
+  String getFullName(String firstName, [String lastName]) =>
+    '$firstName ${lastName ?? ''}';
+  getFullName('Vasyl');
+
+  // Named parameter. Sequence does not matters
+  bool isValidZipCode({ int zipCode }) =>
+    zipCode >= 5;
+  isValidZipCode(zipCode: 4);
 }
