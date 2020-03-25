@@ -41,8 +41,68 @@ void main() {
     '$firstName ${lastName ?? ''}';
   getFullName('Vasyl');
 
-  // Named parameter. Sequence does not matters
+  // Named parameter. The sequence does not matter
   bool isValidZipCode({ int zipCode }) =>
     zipCode >= 5;
   isValidZipCode(zipCode: 4);
+
+  // Handle exceptions
+  // If you know the exception name
+  try {
+    int result = 12 ~/ 0;
+    print(result);
+  } on IntegerDivisionByZeroException {
+    print("Can not divide by Zero :)");
+  }
+
+  // Using Stack Trace, which shows steps where is the error 
+  try {
+    int result = 12 ~/ 0;
+    print(result);
+  } catch(e, s) {
+    print("The exception $e");
+    print("Stack Trace $s");
+  }
+}
+
+// Create own Exception
+class EmptyStringException implements Exception {
+  String errorMessage() {
+    return 'String is empty';
+  }
+}
+
+void setString({String string = ''}) {
+  if (string.length == 0) {
+    throw new EmptyStringException();
+  }
+}
+
+// try {
+//   setString(string: '');
+// } catch (e) {
+//   print(e.errorMessage());
+// }
+
+// Class
+class Student {
+  int id;
+  int age;
+  String name;
+
+  // Parameterised Constructor
+  // Student(this.id, this.name);
+  Student(this.id, this.name, int age) {
+    this.age = age;
+    print('Constructor is calling first');
+  }
+
+  // Named Constructor
+  Student.myCustomConstructor() {
+    // var student = Student.myCustomConstructor() => Student object is returned
+  }
+
+  void study() {
+    print('${this.name} is studying. He is ${this.age} :)');
+  }
 }
