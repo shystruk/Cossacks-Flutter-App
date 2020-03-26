@@ -89,6 +89,7 @@ class Student {
   int id;
   int age;
   String name;
+  String firstName;
 
   // Parameterised Constructor
   // Student(this.id, this.name);
@@ -102,7 +103,41 @@ class Student {
     // var student = Student.myCustomConstructor() => Student object is returned
   }
 
+  void set setFirstName(String name) {
+    firstName = 'First Name is $name';
+  }
+
+  String get getFirstName {
+    return firstName;
+  }
+
   void study() {
     print('${this.name} is studying. He is ${this.age} :)');
   }
 }
+
+// Inheritance
+// Call parent super class manually 
+class Animal {
+  String color;
+
+  Animal(String color) {
+    print('Animal constructor. Color: $color');
+  }
+}
+
+class Dog extends Animal {
+  String name;
+
+  // call super class constructor
+  Dog(this.name, String color) : super(color) {
+    print('Dog constructor');
+  }
+
+  void eat() {
+    print('${this.name} is eating :)');
+  }
+}
+
+// var dog = new Dog('Marli');
+// dog.eat();
