@@ -141,3 +141,54 @@ class Dog extends Animal {
 
 // var dog = new Dog('Marli');
 // dog.eat();
+
+// Abstract class
+abstract class Shape {
+  void draw(); //Abstract method which should be override
+
+  void printShape() {
+    print('Shape');
+  }
+}
+
+class Rectangle extends Shape {
+  void draw() {
+    print('Rectagle draw');
+  }
+}
+
+// var rec = new Rectangle();
+// rec.draw();
+// rec.printShape();
+
+// Interface
+class Remote {
+  void volumeUp() { // Interface methods should be override
+    print('Remove Volume Up');
+  }
+
+  void volumeDown() {
+    print('Remove Volume Down');
+  }
+}
+
+class Screen {
+  void screen() {
+    print('Screen');
+  }
+}
+
+class TV implements Remote, Screen {
+  void volumeUp() {
+    print('TV Volume Up');
+  }
+
+  void screen() => print('TV Screen');
+
+  void volumeDown() {
+    print('TV Volume Down');
+  }
+}
+
+// var tv_1 = new TV();
+// tv_1.volumeUp();
