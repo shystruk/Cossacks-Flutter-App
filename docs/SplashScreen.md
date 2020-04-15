@@ -1,5 +1,8 @@
 # Splash Screen
 
+## Flutter Native Splash
+[Link](https://pub.dev/packages/flutter_native_splash)
+
 ## Adnroid
 [Link](https://medium.com/flutter-community/flutter-2019-real-splash-screens-tutorial-16078660c7a1)
 

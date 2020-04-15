@@ -18,6 +18,7 @@
 
  - [Material Components](https://material.io/components/)
  - [Flutter API](https://api.flutter.dev/index.html)
+ - [Flutter Icons List](https://material.io/resources/icons/?style=baseline)
 
 ## License
 
