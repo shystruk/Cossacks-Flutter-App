@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo_app/utils/constants.dart';
+
+import '../pages/Categories.dart';
+import '../utils/constants.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({ Key key, this.title }) : super(key: key);
@@ -11,12 +13,20 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+  TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = new TabController(length: 3, vsync: this);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
         leading: Container(
           padding: EdgeInsets.all(10),
@@ -31,39 +41,44 @@ class _HomePageState extends State<HomePage> {
             color: Colors.black,
             icon: Icon(Icons.search),
             onPressed: () {
-              setState(() {
-              });
+              setState(() {});
             },
           ),
         ],
-      ),
-      body: Container(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          children: <Widget>[
-            Container(
-              child: Image.asset(
-                'assets/images/kozak.png',
-                width: 200,
-                height: 200,
-              ),
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                RaisedButton(
-                  child: Text('Navigate'),
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      Constants.kozakViewRoute,
-                    );
-                  },
-                ),
-              ]
-            ),
+        bottom: TabBar(
+          controller: _tabController,
+          unselectedLabelColor: Constants.grey,
+          labelColor: Constants.red,
+          indicatorColor: Constants.red,
+          isScrollable: true,
+          labelStyle: TextStyle(
+            fontSize: 14, fontFamily: Constants.font
+          ),
+          tabs: [
+            new Tab(text: 'Trending'),
+            new Tab(text: 'Latest'),
+            new Tab(text: 'New'),
           ],
         ),
+      ),
+      backgroundColor: Colors.white,
+      body: TabBarView(
+        controller: _tabController,
+        children: <Widget>[
+          Center(
+            child: RaisedButton(
+              onPressed: () => Navigator.pushNamed(context, Categories.routeName),
+              child: Text('Go to'),
+            ),
+          ),
+          Center(
+            child: RaisedButton(
+              onPressed: () => Navigator.pushNamed(context, Categories.routeName),
+              child: Text('Go to'),
+            ),
+          ),
+          Text('New Content'),
+        ]
       ),
     );
   }

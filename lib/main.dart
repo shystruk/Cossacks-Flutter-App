@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo_app/widgets/TextCustom.dart';
-import 'package:flutter_demo_app/pages/Home.dart';
-import 'package:flutter_demo_app/pages/KozakView.dart';
+
+import './pages/Home.dart';
+import './pages/KozakView.dart';
+import './pages/Categories.dart';
+import './utils/constants.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,12 +12,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        fontFamily: Constants.font,
       ),
+      debugShowCheckedModeBanner: false,
       home: HomePage(title: ''),
       routes: {
         KozakView.routeName: (context) => KozakView(),
+        Categories.routeName: (context) => Categories(),
       },
     );
   }
-}
+} 
