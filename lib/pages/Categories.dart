@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../utils/constants.dart';
 
-class KozakView extends StatelessWidget {
-  static const String routeName = Constants.kozakViewRoute;
+class Categories extends StatelessWidget {
+  static const String routeName = Constants.categories;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class KozakView extends StatelessWidget {
       body: Center(
         child: RaisedButton(
           onPressed: () => Navigator.pop(context),
-          child: Text('Kozak View')
+          child: Text('Categories')
         ),
       ),
     );
