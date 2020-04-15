@@ -1,5 +1,8 @@
 # Change App Icon/Label/Package Name
 
+## Launcher (flutter_launcher_icons)
+[Link](https://pub.dev/packages/flutter_launcher_icons)
+
 ## Android 
 
 ### App Label
