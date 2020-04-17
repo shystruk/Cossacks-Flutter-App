@@ -14,11 +14,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+  static const List<Map<String, String>> tabsList = [
+    { 'title': 'Cossacks' },
+    { 'title': 'Cities' }
+  ];
+
   TabController _tabController;
 
   @override
   void initState() {
-    _tabController = new TabController(length: 3, vsync: this);
+    _tabController = new TabController(length: tabsList.length, vsync: this);
     super.initState();
   }
 
@@ -31,7 +36,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         leading: Container(
           padding: EdgeInsets.all(10),
           child: Image.asset(
-            'assets/images/kozak.png',
+            'assets/images/cossack.png',
             width: 30,
             height: 30,
           ),
@@ -50,14 +55,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           unselectedLabelColor: Constants.grey,
           labelColor: Constants.red,
           indicatorColor: Constants.red,
-          isScrollable: true,
+          // isScrollable: true,
           labelStyle: TextStyle(
             fontSize: 14, fontFamily: Constants.font
           ),
-          tabs: [
-            new Tab(text: 'Trending'),
-            new Tab(text: 'Latest'),
-            new Tab(text: 'New'),
+          tabs: <Widget>[
+            ...tabsList.map((tab) => new Tab(text: tab['title'])).toList()
           ],
         ),
       ),
@@ -65,12 +68,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       body: TabBarView(
         controller: _tabController,
         children: <Widget>[
-          Center(
-            child: RaisedButton(
-              onPressed: () => Navigator.pushNamed(context, Categories.routeName),
-              child: Text('Go to'),
-            ),
-          ),
           Center(
             child: RaisedButton(
               onPressed: () => Navigator.pushNamed(context, Categories.routeName),

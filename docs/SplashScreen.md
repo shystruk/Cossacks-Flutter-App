@@ -10,3 +10,4 @@ For not resizing an image to a full screen set `<item name="android:windowFullsc
 
 ## iOS
 [Link](https://medium.com/flutter-community/flutter-2019-real-splash-screens-tutorial-16078660c7a1)
+[Splash Screen in iOS](https://medium.com/flawless-app-stories/change-splash-screen-in-ios-app-for-dummies-the-better-way-e385327219e)

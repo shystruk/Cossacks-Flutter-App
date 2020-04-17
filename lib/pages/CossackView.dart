@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/constants.dart';
 
-class KozakView extends StatelessWidget {
+class CossackView extends StatelessWidget {
   static const String routeName = Constants.kozakViewRoute;
 
   @override
