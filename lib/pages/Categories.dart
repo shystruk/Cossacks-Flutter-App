@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../utils/constants.dart';
 
 class Categories extends StatelessWidget {
-  static const String routeName = Constants.categories;
+  static String routeName = Constants.routes['categories'];
 
   @override
   Widget build(BuildContext context) {
