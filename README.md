@@ -1,4 +1,5 @@
-# Flutter Demo app
+# Cossacks Flutter App
+The app where you can find information about Ukrainian Cossacks and Cities
 
 ## Hints
  - `flutter create my_app` - create a new app
