@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import './pages/Home.dart';
 import './pages/CossackView.dart';
 import './pages/Categories.dart';
@@ -22,4 +21,4 @@ class MyApp extends StatelessWidget {
       },
     );
   }
-} 
+}

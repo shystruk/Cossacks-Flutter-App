@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-
-import '../pages/Categories.dart';
+import '../pages/CossacksTabView.dart';
+import '../pages/CitiesTabView.dart';
 import '../utils/constants.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({ Key key, this.title }) : super(key: key);
 
-  static const String routeName = Constants.homeRoute;
+  static String routeName = Constants.routes['home'];
   final String title;
 
   @override
@@ -68,13 +68,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       body: TabBarView(
         controller: _tabController,
         children: <Widget>[
-          Center(
-            child: RaisedButton(
-              onPressed: () => Navigator.pushNamed(context, Categories.routeName),
-              child: Text('Go to'),
-            ),
-          ),
-          Text('New Content'),
+          new CossacksTabView(),
+          new CitiesTabView(),
         ]
       ),
     );
