@@ -38,10 +38,8 @@ class _CossacksTabViewState extends State<CossacksTabView> with AutomaticKeepAli
   Widget build(BuildContext context) {
     return Container(
       child: _isCossacksReady
-        ? Column(
-            children: <Widget>[
-              new CossacksListView(cossacks: cossacks),
-            ],
+        ? Container(
+            child: new CossacksListView(cossacks: cossacks),
           )
         : Column(
             crossAxisAlignment: CrossAxisAlignment.center,
