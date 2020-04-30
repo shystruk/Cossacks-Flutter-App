@@ -20,6 +20,7 @@ The app where you can find information about Ukrainian Cossacks and Cities
  - [Material Components](https://material.io/components/)
  - [Flutter API](https://api.flutter.dev/index.html)
  - [Flutter Icons List](https://material.io/resources/icons/?style=baseline)
+ - [Parsing JSON](https://medium.com/flutter-community/parsing-complex-json-in-flutter-747c46655f51)
 
 ## License
 

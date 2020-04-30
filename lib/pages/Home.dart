@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        brightness: Brightness.light,
         backgroundColor: Colors.white,
         leading: Container(
           padding: EdgeInsets.all(10),
