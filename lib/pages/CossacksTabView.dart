@@ -1,9 +1,10 @@
-import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../utils/constants.dart';
 import '../widgets/CossacksListView.dart';
 import '../mapping/Cossacks.dart';
+import '../utils/services.dart';
 
 class CossacksTabView extends StatefulWidget {
   @override
@@ -25,12 +26,15 @@ class _CossacksTabViewState extends State<CossacksTabView> with AutomaticKeepAli
   }
 
   Future<void> getCossacks() async {
-    var response = await http.get('${Constants.api_url}/cossacks/en');
-    var decodeResponse = jsonDecode(response.body);
-    cossacks = Cossacks.fromJson(decodeResponse);
+    try {
+      var response = await http.get('${Constants.api_url}/cossacks/en');
+      cossacks = Cossacks.fromJson(HttpHelper.getResponse(response));
+    } on SocketException {
+      HttpHelper.showHttpStatusDialog(context, 'No Internet connection');
+    }
 
     this.setState(() {
-      _isCossacksReady = true;
+      _isCossacksReady = cossacks != null;
     });
   }
 
