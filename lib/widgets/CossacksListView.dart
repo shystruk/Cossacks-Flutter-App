@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 import '../utils/constants.dart';
+import '../utils/services.dart';
 import '../mapping/Cossacks.dart';
 
 class CossacksListView extends StatefulWidget {
@@ -25,7 +26,11 @@ class _CossacksListViewState extends State<CossacksListView> {
         ...widget.cossacks.list.map((cossack) => 
           GestureDetector(
             onTap: () => {
-              print(cossack['name'])
+              Navigator.pushNamed(
+                context, 
+                Constants.routes['cossackView'],
+                arguments: RouteArguments(cossack['id'])
+              )
             },
             child: Container(
               width: double.infinity,
@@ -73,6 +78,8 @@ class _CossacksListViewState extends State<CossacksListView> {
                           margin: EdgeInsets.only(top: 5, bottom: 5),
                           child: Text(
                             cossack['title'],
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize: 12,
                               height: 1.3,

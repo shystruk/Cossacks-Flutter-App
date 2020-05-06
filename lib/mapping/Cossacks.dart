@@ -9,6 +9,7 @@ class Cossacks {
       
       json.forEach((cossack) => {
         list.add({
+          'id': cossack['id'].toString(),
           'name': cossack['name'],
           'title': cossack['title'],
           'born': cossack['born'],
