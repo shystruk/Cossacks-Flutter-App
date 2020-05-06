@@ -9,6 +9,12 @@ class Services {
   }
 }
 
+class RouteArguments {
+  final String id;
+
+  RouteArguments(this.id);
+}
+
 class HttpHelper {
   static dynamic getResponse(http.Response response) {
     switch (response.statusCode) {
