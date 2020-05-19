@@ -1,10 +1,9 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import '../utils/constants.dart';
 import '../widgets/CossacksListView.dart';
+import '../providers/CossacksProvider.dart';
 import '../mapping/Cossacks.dart';
-import '../utils/services.dart';
 
 class CossacksTabView extends StatefulWidget {
   @override
@@ -13,7 +12,6 @@ class CossacksTabView extends StatefulWidget {
 
 class _CossacksTabViewState extends State<CossacksTabView> with AutomaticKeepAliveClientMixin {
   bool _isCossacksReady = false;
-  Cossacks cossacks;
 
   @override
   bool get wantKeepAlive => true;
@@ -21,25 +19,19 @@ class _CossacksTabViewState extends State<CossacksTabView> with AutomaticKeepAli
   @override
   void initState() {
     super.initState();
-
-    getCossacks();
-  }
-
-  Future<void> getCossacks() async {
-    try {
-      var response = await http.get('${Constants.api_url}/cossacks/en');
-      cossacks = Cossacks.fromJson(HttpHelper.getResponse(response));
-    } on SocketException {
-      HttpHelper.showHttpStatusDialog(context, 'No Internet connection');
-    }
-
-    this.setState(() {
-      _isCossacksReady = cossacks != null;
-    });
   }
 
   @override
   Widget build(BuildContext context) {
+    final cossacksData = Provider.of<CossacksProvider>(context);
+    final Cossacks cossacks = cossacksData.cossacks;
+
+    if (cossacks == null) {
+      cossacksData.getCossacks();
+    } else {
+      this.setState(() { _isCossacksReady = true; });
+    }
+
     return Container(
       child: _isCossacksReady
         ? Container(
@@ -49,7 +41,7 @@ class _CossacksTabViewState extends State<CossacksTabView> with AutomaticKeepAli
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.all(50),
+                padding: const EdgeInsets.all(50),
                 child: CircularProgressIndicator(
                   backgroundColor: Constants.red, 
                   valueColor: new AlwaysStoppedAnimation<Color>(Colors.white)

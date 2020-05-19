@@ -1,7 +1,11 @@
+import 'package:flutter/foundation.dart';
+
 class Cossacks {
   List<Map<String, dynamic>> list;
 
-  Cossacks({ this.list });
+  Cossacks({
+    @required this.list
+  });
 
   Cossacks.fromJson(List<dynamic> json) {
     if (json != null) {
@@ -9,6 +13,7 @@ class Cossacks {
       
       json.forEach((cossack) => {
         list.add({
+          'id': cossack['id'].toString(),
           'name': cossack['name'],
           'title': cossack['title'],
           'born': cossack['born'],
