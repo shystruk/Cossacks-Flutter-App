@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 import '../utils/constants.dart';
-import '../utils/services.dart';
 import '../mapping/Cossacks.dart';
 
 class CossacksListView extends StatefulWidget {
@@ -29,7 +28,7 @@ class _CossacksListViewState extends State<CossacksListView> {
               Navigator.pushNamed(
                 context, 
                 Constants.routes['cossackView'],
-                arguments: RouteArguments(cossack['id'])
+                arguments: cossack['id']
               )
             },
             child: Container(
@@ -39,10 +38,10 @@ class _CossacksListViewState extends State<CossacksListView> {
                   bottom: BorderSide(width: 0.3, color: Constants.grey),
                 ),
               ),
-              margin: EdgeInsets.symmetric(
+              margin: const EdgeInsets.symmetric(
                 horizontal: 15,
               ),
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 vertical: 20,
               ),
               child: Row(
@@ -50,9 +49,9 @@ class _CossacksListViewState extends State<CossacksListView> {
                 crossAxisAlignment: CrossAxisAlignment.start,       
                 children: <Widget>[
                   Container(
-                    margin: EdgeInsets.only(right: 15),
+                    margin: const EdgeInsets.only(right: 15),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.circular(8),
                       child: FadeInImage.memoryNetwork(
                         placeholder: kTransparentImage,
                         image: cossack['image'],
@@ -75,7 +74,7 @@ class _CossacksListViewState extends State<CossacksListView> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 5, bottom: 5),
+                          margin: const EdgeInsets.only(top: 5, bottom: 5),
                           child: Text(
                             cossack['title'],
                             maxLines: 4,

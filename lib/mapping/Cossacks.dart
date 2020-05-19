@@ -1,7 +1,11 @@
+import 'package:flutter/foundation.dart';
+
 class Cossacks {
   List<Map<String, dynamic>> list;
 
-  Cossacks({ this.list });
+  Cossacks({
+    @required this.list
+  });
 
   Cossacks.fromJson(List<dynamic> json) {
     if (json != null) {

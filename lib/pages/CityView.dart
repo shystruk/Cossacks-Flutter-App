@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../providers/CossacksProvider.dart';
 import '../utils/constants.dart';
 
-class CossackView extends StatefulWidget {
-  static String routeName = Constants.routes['cossackView'];
+class CityView extends StatefulWidget {
+  static String routeName = Constants.routes['cityView'];
 
   @override
-  _CossackViewState createState() => _CossackViewState();
+  _CityViewState createState() => _CityViewState();
 }
 
-class _CossackViewState extends State<CossackView> {
-  dynamic _cossack;
+class _CityViewState extends State<CityView> {
   bool _isAppBarCollapsed = false;
   ScrollController _scrollController;
 
@@ -38,13 +35,7 @@ class _CossackViewState extends State<CossackView> {
 
   @override
   Widget build(BuildContext context) {
-    final String cossackId = ModalRoute.of(context).settings.arguments;
-    final cossacksData = Provider.of<CossacksProvider>(context);
-    cossacksData.cossacks.list.forEach((item) => {
-      if (item['id'] == cossackId) {
-        this.setState(() { _cossack = item; })
-      }
-    });
+    final String cityId = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
       body: CustomScrollView(
@@ -70,7 +61,7 @@ class _CossackViewState extends State<CossackView> {
                           ColorFilter.mode(Colors.black.withOpacity(0.5), 
                           BlendMode.dstATop),
                         image: new NetworkImage(
-                          _cossack['image']
+                          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg',
                         ),
                       ),
                     ),
@@ -83,7 +74,7 @@ class _CossackViewState extends State<CossackView> {
             delegate: SliverChildListDelegate([
               ListTile(
                 leading: Icon(Icons.wb_sunny),
-                title: Text(cossackId),
+                title: Text(cityId),
                 subtitle: Text('sunny, h: 80, l: 65'),
               ),
               ListTile(
