@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         brightness: Brightness.light,
         backgroundColor: Colors.white,
         leading: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Image.asset(
             'assets/images/cossack.png',
             width: 30,
