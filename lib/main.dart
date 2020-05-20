@@ -6,6 +6,7 @@ import './pages/CityView.dart';
 import './pages/Categories.dart';
 import './utils/constants.dart';
 import './providers/CossacksProvider.dart';
+import './providers/CitiesProvider.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => CossacksProvider()),
+        ChangeNotifierProvider(create: (_) => CitiesProvider()),
       ],
       child: MaterialApp(
         theme: ThemeData(
