@@ -15,6 +15,10 @@ class CossacksProvider with ChangeNotifier {
     _cossacks = items;
   }
 
+  Cossack findById(String id) {
+    return _cossacks.list.firstWhere((item) => item.id == id);
+  }
+
   Future<void> getCossacks() async {
     var response = await http.get('${Constants.api_url}/cossacks/en');
     cossacks = Cossacks.fromJson(HttpHelper.getResponse(response));

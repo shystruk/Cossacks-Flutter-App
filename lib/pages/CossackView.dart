@@ -40,11 +40,8 @@ class _CossackViewState extends State<CossackView> {
   @override
   Widget build(BuildContext context) {
     final String cossackId = ModalRoute.of(context).settings.arguments;
-    final cossacksData = Provider.of<CossacksProvider>(context);
-    cossacksData.cossacks.list.forEach((item) => {
-      if (item.id == cossackId) {
-        this.setState(() { _cossack = item; })
-      }
+    this.setState(() { 
+      _cossack = Provider.of<CossacksProvider>(context, listen: false).findById(cossackId);
     });
 
     return Scaffold(
