@@ -22,13 +22,13 @@ class _CossacksListViewState extends State<CossacksListView> {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        ...widget.cossacks.list.map((cossack) => 
+        ...widget.cossacks.list.map((Cossack cossack) => 
           GestureDetector(
             onTap: () => {
               Navigator.pushNamed(
                 context, 
                 Constants.routes['cossackView'],
-                arguments: cossack['id']
+                arguments: cossack.id
               )
             },
             child: Container(
@@ -54,7 +54,7 @@ class _CossacksListViewState extends State<CossacksListView> {
                       borderRadius: BorderRadius.circular(8),
                       child: FadeInImage.memoryNetwork(
                         placeholder: kTransparentImage,
-                        image: cossack['image'],
+                        image: cossack.image,
                         width: 90,
                         height: 100,
                         fit: BoxFit.fill,
@@ -67,7 +67,7 @@ class _CossacksListViewState extends State<CossacksListView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          cossack['name'],
+                          cossack.name,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class _CossacksListViewState extends State<CossacksListView> {
                         Container(
                           margin: const EdgeInsets.only(top: 5, bottom: 5),
                           child: Text(
-                            cossack['title'],
+                            cossack.title,
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -86,7 +86,7 @@ class _CossacksListViewState extends State<CossacksListView> {
                           )
                         ),
                         Text(
-                          '(${cossack['born']} - ${cossack['died']})',
+                          '(${cossack.born} - ${cossack.died})',
                           style: TextStyle(
                             fontSize: 12,
                           ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/CossacksProvider.dart';
 import '../utils/constants.dart';
+import '../mapping/Cossacks.dart';
 
 class CossackView extends StatefulWidget {
   static String routeName = Constants.routes['cossackView'];
@@ -11,7 +12,7 @@ class CossackView extends StatefulWidget {
 }
 
 class _CossackViewState extends State<CossackView> {
-  dynamic _cossack;
+  Cossack _cossack;
   bool _isAppBarCollapsed = false;
   ScrollController _scrollController;
 
@@ -41,7 +42,7 @@ class _CossackViewState extends State<CossackView> {
     final String cossackId = ModalRoute.of(context).settings.arguments;
     final cossacksData = Provider.of<CossacksProvider>(context);
     cossacksData.cossacks.list.forEach((item) => {
-      if (item['id'] == cossackId) {
+      if (item.id == cossackId) {
         this.setState(() { _cossack = item; })
       }
     });
@@ -70,7 +71,7 @@ class _CossackViewState extends State<CossackView> {
                           ColorFilter.mode(Colors.black.withOpacity(0.5), 
                           BlendMode.dstATop),
                         image: new NetworkImage(
-                          _cossack['image']
+                          _cossack.image
                         ),
                       ),
                     ),
