@@ -23,6 +23,7 @@ class _CossacksTabViewState extends State<CossacksTabView> with AutomaticKeepAli
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final cossacksData = Provider.of<CossacksProvider>(context);
     final Cossacks cossacks = cossacksData.cossacks;
 
